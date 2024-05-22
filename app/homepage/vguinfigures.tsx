@@ -1,5 +1,8 @@
+'use client';
+import CountUp from 'react-countup';
 import Image from 'next/image';
 import { sans } from '../ui/fonts';
+{<script src="/node_modules/countup.js/dist/countUp.min.js"></script>}
 
 export default function VguInFigures() {
   return (
@@ -25,21 +28,53 @@ export default function VguInFigures() {
         </div>
         <div className="col-span-2 mx-6 flex flex-col justify-between">
           <div>
-            <p className="text-6xl font-semibold text-vgu-darkblue">1700</p>
+            <p className="text-6xl font-semibold text-vgu-darkblue">
+              <CountUp start={0} end={1700} delay={0} enableScrollSpy={true} scrollSpyOnce={true}>
+                {({ countUpRef }) => (
+                  <div>
+                    <span ref={countUpRef} />
+                  </div>
+                )}
+              </CountUp>
+            </p>
             <p className="text-xl">approximate number of students</p>
           </div>
           <div>
-            <p className="text-6xl font-semibold text-vgu-darkblue">200</p>
+            <p className="text-6xl font-semibold text-vgu-darkblue">
+              <CountUp start={0} end={200} delay={0} enableScrollSpy={true} scrollSpyOnce={true}>
+                {({ countUpRef }) => (
+                  <div>
+                    <span ref={countUpRef} />
+                  </div>
+                )}
+              </CountUp>
+            </p>
             <p className="text-xl">
               millions of dollars investment in infrastructure
             </p>
           </div>
           <div>
-            <p className="text-6xl font-semibold text-vgu-darkblue">71</p>
+            <p className="text-6xl font-semibold text-vgu-darkblue">
+              <CountUp start={0} end={71} delay={0} enableScrollSpy={true} scrollSpyOnce={true}>
+                {({ countUpRef }) => (
+                  <div>
+                    <span ref={countUpRef} />
+                  </div>
+                )}
+              </CountUp>
+            </p>
             <p className="text-xl">technical laboratories</p>
           </div>
           <div>
-            <p className=" text-6xl font-semibold text-vgu-darkblue">20</p>
+            <p className=" text-6xl font-semibold text-vgu-darkblue">
+              <CountUp start={0} end={20} delay={0} enableScrollSpy={true} scrollSpyOnce={true}>
+                {({ countUpRef }) => (
+                  <div>
+                    <span ref={countUpRef} />
+                  </div>
+                )}
+              </CountUp>
+            </p>
             <p className="text-xl">study programs</p>
           </div>
         </div>
