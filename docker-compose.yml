@@ -1,7 +1,7 @@
 version: "3"
 services:
   directus:
-    container_name: vgu-website-directus-v2
+    container_name: vgu-website-directus-v3
     image: directus/directus:latest
     expose:
       - "8055"
