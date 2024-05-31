@@ -1,13 +1,33 @@
-version: '3.5'
-
+version: "3"
 services:
+  directus:
+    container_name: vgu-website-directus-v2
+    image: directus/directus:latest
+    expose:
+      - "8055"
+    ports:
+      - 8055:8055
+    volumes:
+      - ./database:/directus/database
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+      - ./snapshots:/directus/snapshots
+    environment:
+      KEY: "replace-with-random-value"
+      SECRET: "replace-with-random-value"
+      ADMIN_EMAIL: "admin@example.com"
+      ADMIN_PASSWORD: "abc123"
+      DB_CLIENT: "sqlite3"
+      DB_FILENAME: "/directus/database/data.db"
+      WEBSOCKETS_ENABLED: "true"
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: ./vgu_website_v2
     container_name: web-intern
     ports:
       - '3000:3000'
     volumes:
-      - .:/app
+      - ./vgu_website_v2:/app
       - /app/node_modules
+    depends_on:
+      - directus
+  
