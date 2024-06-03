@@ -14,7 +14,7 @@ export default function MainNav() {
       className={`${sans.className}  flex h-auto w-full items-center justify-between p-6 align-middle text-xl`}
     >
       <div>
-        <Link href={'/homepage'}>
+        <Link href={'/home-page'}>
           {' '}
           <Image
             src="/vgu-logo.png"
@@ -31,7 +31,7 @@ export default function MainNav() {
           {navLinks.map(({ name, path }) => (
             <Link href={path}>
               <li
-                key={name}
+                key={path}
                 className={clsx(
                   'nav-links link-underline align-items-middle flex cursor-pointer px-4 font-medium capitalize text-vgu-darkblue duration-200 hover:scale-105 hover:text-vgu-orange',
                 )}
