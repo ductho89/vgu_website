@@ -7,7 +7,7 @@ export default function VguLogo() {
     <div
       className={`${sans.className} flex flex-row items-center leading-none text-black`}
     >
-      <Link href={'/home'}>
+      <Link href={'/home-page'}>
         {' '}
         <Image
           src="/vgu-logo.png"
