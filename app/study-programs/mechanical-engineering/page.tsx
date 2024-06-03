@@ -1,5 +1,3 @@
-import Header from '@/app/global-components/header';
-import Footer from '@/app/global-components/footer';
 import Image from 'next/image';
 export default function Page() {
   return (
