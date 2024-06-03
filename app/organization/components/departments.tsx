@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { sans } from '../ui/fonts';
+import { sans } from '../../ui/fonts';
 import Link from 'next/link';
 
 export default function Departments() {
@@ -9,7 +9,7 @@ export default function Departments() {
       content:
         'Vietnamese - German University is governed by the executive board',
       imageUrl: '/girl1.jpeg',
-      url: 'presidentialboard',
+      url: 'presidential-board',
     },
     {
       label: 'FALCUTIES',
@@ -23,7 +23,7 @@ export default function Departments() {
       content:
         'Vietnamese - German University is governed by the central units',
       imageUrl: '/girl3.jpeg',
-      url: 'centralunits',
+      url: 'central-units',
     },
     // {
     //   label: 'ADMISSIONS',

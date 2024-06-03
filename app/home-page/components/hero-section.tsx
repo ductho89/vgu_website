@@ -1,9 +1,13 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 import Image from 'next/image';
 import { Carousel } from '@material-tailwind/react';
 export default function HeroSection() {
   return (
-    <Carousel transition={{ type: 'tween', duration: 1 }}>
+    <Carousel
+      className="content-fit"
+      transition={{ type: 'tween', duration: 1 }}
+    >
       <img
         src="/vgu_1.jpeg"
         alt="image 1"

@@ -29,7 +29,6 @@ export default function MainNav() {
       <div>
         <ul className="hidden md:flex">
           {navLinks.map(({ name, path }) => (
-            // eslint-disable-next-line react/jsx-key
             <Link href={path}>
               <li
                 key={name}

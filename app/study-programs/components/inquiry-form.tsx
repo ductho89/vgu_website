@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import { sans } from '../ui/fonts';
+import { sans } from '../../ui/fonts';
 import Link from 'next/link';
 export default function InquiryForm() {
     return (

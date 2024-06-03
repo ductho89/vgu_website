@@ -1,4 +1,4 @@
-import Header from "@/app/components/header";
+import Header from "@/app/global-components/header";
 
 export default function Page() {
     return (

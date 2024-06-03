@@ -2,7 +2,7 @@
 import React from 'react';
 import CountUp from 'react-countup';
 import Image from 'next/image';
-import { sans } from '../ui/fonts';
+import { sans } from '../../ui/fonts';
 
 export default function VguInFigures() {
   const VguNumbersData = [

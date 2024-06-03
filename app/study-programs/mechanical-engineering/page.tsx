@@ -1,10 +1,10 @@
-import Header from '@/app/components/header';
-import Footer from '@/app/components/footer';
+import Header from '@/app/global-components/header';
+import Footer from '@/app/global-components/footer';
 import Image from 'next/image';
 export default function Page() {
   return (
     <main>
-      <Header />
+      {/* <Header /> */}
       <div className="h-auto w-full">
         <div className="relative mb-8 max-w-full">
           <img
@@ -180,7 +180,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }

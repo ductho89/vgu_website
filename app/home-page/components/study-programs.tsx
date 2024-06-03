@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { sans } from '../ui/fonts';
+import { sans } from '../../ui/fonts';
 import Link from 'next/link';
 
 const studyProgramsData = [
