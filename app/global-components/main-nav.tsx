@@ -31,7 +31,7 @@ export default function MainNav() {
           {navLinks.map(({ name, path }) => (
             <Link href={path}>
               <li
-                key={path}
+                key={name}
                 className={clsx(
                   'nav-links link-underline align-items-middle flex cursor-pointer px-4 font-medium capitalize text-vgu-darkblue duration-200 hover:scale-105 hover:text-vgu-orange',
                 )}

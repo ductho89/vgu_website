@@ -14,15 +14,12 @@ import {
 import { PresidentialBoardMember } from '../../lib/definitions';
 import { sans } from '../../ui/fonts';
 
-
-
-
 export default function Page() {
   const presidentialBoardData: PresidentialBoardMember[] = [
     {
       name: 'Prof.Dr. René Thiele',
       position: 'President',
-      imageUrl: '/drRenéThiele.jpg',
+      imageUrl: '/drhathucvien.jpg',
       email: 'thiele.r@vgu.edu.vn',
       phone: '+84 (0)274 222 0990 (ext: 70111)',
       bio: 'Ambitious and results-driven academic professional with broad-based expertise in leading teams, establishing departments and strengthening organizations. Committed to excellence in business operations.',
@@ -55,7 +52,7 @@ export default function Page() {
       imageUrl: '/drthomas.jpg',
       email: 'aulig.t@vgu.edu.vn',
       phone: '+84 (0)274 222 0990 (ext: 70112)',
-      bio:'Ambitious and results-driven academic professional with broad-based expertise in leading teams, establishing departments and strengthening organizations. Committed to excellence in business operations.',
+      bio: 'Ambitious and results-driven academic professional with broad-based expertise in leading teams, establishing departments and strengthening organizations. Committed to excellence in business operations.',
       achievements: [
         'Ph.D in Resource Economics from Humboldt University, Germany, 2007.',
         'MA in Sustainable Development from Chiang Mai University, Thai Lan, 2003.',
@@ -236,7 +233,6 @@ export default function Page() {
                         open={size === 'lg'}
                         size={size || 'lg'}
                         handler={handleOpen}
-                         
                       >
                         <DialogBody>
                           {selectedMember && (
