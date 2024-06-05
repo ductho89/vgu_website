@@ -19,7 +19,7 @@ export default function Page() {
     {
       name: 'Prof.Dr. René Thiele',
       position: 'President',
-      imageUrl: '/drhathucvien.jpg',
+      imageUrl: '/drReneThiele.jpg',
       email: 'thiele.r@vgu.edu.vn',
       phone: '+84 (0)274 222 0990 (ext: 70111)',
       bio: 'Ambitious and results-driven academic professional with broad-based expertise in leading teams, establishing departments and strengthening organizations. Committed to excellence in business operations.',
