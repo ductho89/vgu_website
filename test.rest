@@ -1,0 +1,11 @@
+GET http://localhost:6000
+
+
+###
+GET http://localhost:6000/setup
+
+# Content-Type: application/json
+# {
+#     "firstname":"tho",
+#     "lastname":"duc"
+# }
