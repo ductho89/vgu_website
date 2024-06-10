@@ -11,7 +11,7 @@ import {
 import { formatCurrency } from './utils';
 
 export const navLinks = [
-  { name: 'Study Programs', path: '/studyprograms' },
+  { name: 'Study Programs', path: '/study-programs' },
 
   {
     name: 'Organization',
@@ -19,11 +19,11 @@ export const navLinks = [
   },
   {
     name: 'Contact Us',
-    path: '/contactus',
+    path: '/contact-us',
   },
   {
     name: 'Apply Now',
-    path: '/applynow',
+    path: '/apply-now',
   },
 ];
 
@@ -37,16 +37,16 @@ export const organizationLinks = [
 export const studyProgramsLinks = [
   {
     name: 'Mechanical Engineering',
-    path: '/studyprograms/mechanical_engineering',
+    path: '/study-programs/mechanical-engineering',
   },
 
   {
     name: 'Computer Science',
-    path: '/studyprograms/computer_science',
+    path: '/study-programs/computer-science',
   },
   {
     name: 'Electrical Engineering',
-    path: '/studyprograms/electrical_engineering',
+    path: '/study-programs/electrical-engineering',
   },
 ];
 
@@ -54,11 +54,11 @@ export const subNavLinks = [
   { name: 'Quick Access', path: '/quickaccess' },
   {
     name: 'News & Events',
-    path: '/newsandevents',
+    path: '/news-and-events',
   },
   {
     name: 'Research',
-    path: '/contactus',
+    path: '/contact-us',
   },
 ];
 

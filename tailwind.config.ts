@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 const withMT = require('@material-tailwind/react/utils/withMT');
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 const config: Config = withMT({
   content: [
@@ -8,11 +9,12 @@ const config: Config = withMT({
     './app/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ['"IBM Plex Sans"', 'sans-serif'],
-      },
+    fontFamily: {
+      sans: ['IBM Plex Sans'],
+      body: ['"IBM Plex Sans"'],
+    },
 
+    extend: {
       gridTemplateColumns: {
         '13': 'repeat(13, minmax(0, 1fr))',
       },

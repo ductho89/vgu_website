@@ -1,18 +1,15 @@
-import Footer from '../components/footer';
-import Header from '../components/header';
-import HeroSection from './herosection';
-import Organization from './departments';
+"use client"
+import HeroSection from './components/hero-section';
+import Organization from './components/departments';
 import Test from './test';
-import MainNav from '../components/mainnav';
+import MainNav from '../global-components/main-nav';
 export default function Page() {
   return (
     <main>
-      {/* <Header /> */}
-      {/* <MainNav /> */}
       <HeroSection />
       <Organization />
       {/* <Test /> */}
-      {/* <Footer /> */}
+
     </main>
   );
 }

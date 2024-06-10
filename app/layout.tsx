@@ -1,7 +1,7 @@
 import '@/app/ui/global.css';
 import { sans } from './ui/fonts';
-import Footer from './components/footer';
-import Header from './components/header';
+import Footer from './global-components/footer';
+import Header from './global-components/header';
 
 export default function RootLayout({
   children,
