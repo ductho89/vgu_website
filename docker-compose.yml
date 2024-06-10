@@ -20,6 +20,8 @@ services:
       DB_CLIENT: "sqlite3"
       DB_FILENAME: "/directus/database/data.db"
       WEBSOCKETS_ENABLED: "true"
+    networks:
+      - new-vgu-network
   web:
     build: ./vgu_website_v2
     container_name: web-intern
@@ -30,4 +32,9 @@ services:
       - /app/node_modules
     depends_on:
       - directus
+    networks:
+      - new-vgu-network
+networks:
+  new-vgu-network:
+    driver: bridge
   
