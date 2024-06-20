@@ -1,4 +1,5 @@
-version: "3"
+version: '3.6'
+
 services:
   directus:
     container_name: vgu-website-directus-v3
@@ -23,12 +24,12 @@ services:
     networks:
       - new-vgu-network
   web:
-    build: ./vgu_website_v2
+    build: .
     container_name: web-intern
     ports:
       - '3000:3000'
     volumes:
-      - ./vgu_website_v2:/app
+      - .:/app
       - /app/node_modules
     depends_on:
       - directus
@@ -37,4 +38,3 @@ services:
 networks:
   new-vgu-network:
     driver: bridge
-  
