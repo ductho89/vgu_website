@@ -1,26 +1,11 @@
 import Image from 'next/image';
 import { sans } from '../../ui/fonts';
 import Link from 'next/link';
+import { getStudyPrograms } from '@/app/lib/utils';
+import directus from '@/lib/directus';
 
-const studyProgramsData = [
-  {
-    label: 'Bachelor Programs',
-    content: 'Explore our bachelor programs.',
-    imageUrl: '/girl1.jpeg',
-  },
-  {
-    label: 'Master Programs',
-    content: 'Explore our master programs.',
-    imageUrl: '/girl2.jpeg',
-  },
-  {
-    label: 'Exchange Programs',
-    content: 'Explore our exchange programs.',
-    imageUrl: '/girl3.jpeg',
-  },
-];
-
-export default function StudyPrograms() {
+export default async function StudyPrograms() {
+  const studyPrograms = await getStudyPrograms();
   return (
     <div className={`${sans.className} mt-12`}>
       <div className="mb-12">
@@ -35,21 +20,21 @@ export default function StudyPrograms() {
       {/* ---PROGRAMS LIST--- */}
 
       <div id="programlist" className="mx-auto grid w-8/12 grid-cols-3 gap-6 ">
-        {studyProgramsData.map(({ label, content, imageUrl }) => (
+        {studyPrograms.map((item: any) => (
           <div
-            key={label}
+            key={item.name}
             className=" max-w-xs overflow-hidden rounded shadow-lg duration-200 hover:scale-105"
           >
             <Image
-              src={`${imageUrl}`}
+              src={`${directus.url}assets/${item.thumbnail.filename_disk}`}
               width={300}
               height={300}
               alt="Placeholder image"
               className="card-image block w-full border-b-2 border-b-vgu-orange"
             />
             <div className="px-6 py-4">
-              <div className="mb-2 text-2xl font-bold">{label}</div>
-              <p className="text-base text-gray-700">{content}</p>
+              <div className="mb-2 text-2xl font-bold">{item.name}</div>
+              <p className="text-base text-gray-700">{item.description}</p>
             </div>
             <div className="p-6">
               <Link href={`/studyprograms`}>

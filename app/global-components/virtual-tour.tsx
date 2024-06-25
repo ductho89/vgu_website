@@ -1,11 +1,15 @@
+import directus from '@/lib/directus';
 import { sans } from '../ui/fonts';
+import Image from 'next/image';
 
 export default function VirtualTour() {
   return (
     <div className={`${sans.className}`}>
       <div className="relative">
-        <img
-          src="/vgu_campus.jpeg"
+        <Image
+          src={`${directus.url}assets/9e489813-e9ad-4b83-b346-2ad68e486a57`}
+          height={940}
+          width={1920}
           className="h-auto max-w-full brightness-75 filter"
           alt="VGU Campus Image"
         />

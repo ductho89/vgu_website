@@ -3,30 +3,13 @@ import React from 'react';
 import CountUp from 'react-countup';
 import Image from 'next/image';
 import { sans } from '../../ui/fonts';
+import directus from '@/lib/directus';
 
-export default function VguInFigures() {
-  const VguNumbersData = [
-    {
-      label: 'Student numbers',
-      number: 1700,
-      desc: 'Vietnamese - German University is governed by the executive board',
-    },
-    {
-      label: 'Investment in infrastructure',
-      number: 200,
-      desc: 'millions of dollars investment in infrastructure',
-    },
-    {
-      label: 'Technical laboratories',
-      number: 71,
-      desc: 'technical laboratories',
-    },
-    {
-      label: 'Study programs',
-      number: 20,
-      desc: 'study programs',
-    },
-  ];
+export default function VguInFigures({ figureData }: { figureData: any }) {
+  if (!figureData) {
+    console.error('Invalid carouselData format:', figureData);
+    return null;
+  }
 
   return (
     <div className={`${sans.className}`}>
@@ -42,7 +25,7 @@ export default function VguInFigures() {
       <div className="mx-auto grid h-auto w-8/12 grid-cols-7 ">
         <div className="relative col-span-5 ">
           <Image
-            src="/vgu_library.jpeg"
+            src={`${directus.url}assets/e9e22c0a-3cb8-43cc-94bf-e9f8cbfaa9ff`}
             alt="VGU Library Image"
             width={1000}
             height={750}
@@ -50,18 +33,18 @@ export default function VguInFigures() {
           />
         </div>
         <div className="col-span-2 mx-6 flex flex-col justify-between">
-          {VguNumbersData.map((item, index) => (
-            <div key={index}>
+          {figureData.map((item: any) => (
+            <div key={item.content}>
               <CountUp
                 start={0}
-                end={item.number}
+                end={item.figure}
                 delay={0}
                 duration={3}
                 enableScrollSpy={true}
                 scrollSpyOnce={false}
                 className="text-6xl font-semibold text-vgu-darkblue"
               />
-              <p className="text-xl">{item.desc}</p>
+              <p className="text-xl">{item.content}</p>
             </div>
           ))}
         </div>
