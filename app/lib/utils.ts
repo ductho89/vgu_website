@@ -2,6 +2,13 @@ import directus from '@/lib/directus';
 import { readItems, readItem } from '@directus/sdk';
 import { notFound } from 'next/navigation';
 
+export const formatCurrency = (amount: number) => {
+  return (amount / 100).toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+};
+
 export async function getNavigationItems(type: string) {
 	try {
 		const navItems = await directus.request(
