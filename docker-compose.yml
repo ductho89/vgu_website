@@ -23,16 +23,24 @@ services:
       WEBSOCKETS_ENABLED: "true"
     networks:
       - new-vgu-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8055"]
+      interval: 10s
+      timeout: 5s
+      retries: 50
   web:
-    build: .
-    container_name: web-intern
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: web-intern-v2
     ports:
       - '3000:3000'
     volumes:
       - .:/app
       - /app/node_modules
     depends_on:
-      - directus
+      directus:
+        condition: "service_started"
     networks:
       - new-vgu-network
 networks:
