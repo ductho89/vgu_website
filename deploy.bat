@@ -13,7 +13,7 @@ for %%H in (%HOSTS%) do (
 	plink -ssh -l %USERNAME% -pw %PASSWORD% %%H "rm -r app & mkdir app"
 
 	@echo copy local public folder to ~/app/public on server
-	scp -r ./public %USERNAME%@%%H:./app/
+	scp -r ./public/ %USERNAME%@%%H:./app
 	
 	@echo Update and run vgu-web-test
 	plink -ssh -l %USERNAME% -pw %PASSWORD% %%H %SCRIPT%
