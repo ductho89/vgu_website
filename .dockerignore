@@ -2,3 +2,7 @@ database/
 extensions/
 snapshots/
 uploads/
+public/**/*
+public
+node_modules/**/*
+node_modules
