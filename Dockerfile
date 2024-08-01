@@ -1,18 +1,16 @@
-FROM node:latest as builder
-WORKDIR /app
+FROM node:18 AS builder
+
+RUN mkdir -p /nextjs/app && chown -R node:node /nextjs/app
+WORKDIR /nextjs/app
+
 COPY package.json package-lock.json* ./
-RUN npm ci
+RUN npm install
+
 COPY . .
-RUN npm run build 
 
-##### STAGE 2 #####
-
-FROM node:latest
-WORKDIR /app
-
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
+RUN npm run build
 
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]
+
+

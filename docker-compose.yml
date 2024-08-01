@@ -2,22 +2,21 @@ version: '3.6'
 
 services:
   directus:
-    container_name: vgu-website-directus-v3
+    container_name: directus
     image: directus/directus:latest
     expose:
       - "8055"
     ports:
-      - 8055:8055
+      - "8055:8055"
     volumes:
       - ./database:/directus/database
       - ./uploads:/directus/uploads
       - ./extensions:/directus/extensions
       - ./snapshots:/directus/snapshots
+    env_file: .env
     environment:
       KEY: "replace-with-random-value"
       SECRET: "replace-with-random-value"
-      ADMIN_EMAIL: "admin@example.com"
-      ADMIN_PASSWORD: "abc123"
       DB_CLIENT: "sqlite3"
       DB_FILENAME: "/directus/database/data.db"
       WEBSOCKETS_ENABLED: "true"
@@ -29,21 +28,24 @@ services:
       interval: 15s
       timeout: 15s
       retries: 1
-  web:
+  web-intern-v2:
+    container_name: web-intern-v2
+    ports: [$APP_PORT:3000]
+    image: node:lts-alpine
     build:
       context: .
-      dockerfile: Dockerfile
-    container_name: web-intern-v2
-    ports:
-      - '3000:3000'
-    volumes:
-      - .:/app
-      - /app/node_modules
+    restart: unless-stopped
+    env_file: .env
     depends_on:
-      directus:
-        condition: service_healthy
+      - directus
+    volumes: [.:/nextjs/app]
+    environment:
+      - NEXT_PUBLIC_ENDPOINT=http://directus:8055
+   
+    profiles: ["prod"]
     networks:
       - new-vgu-network
 networks:
   new-vgu-network:
     driver: bridge
+    name: new-vgu-network
