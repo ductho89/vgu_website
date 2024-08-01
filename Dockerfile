@@ -1,4 +1,4 @@
-FROM node:18 AS builder
+FROM node:latest AS builder
 
 RUN mkdir -p /nextjs/app && chown -R node:node /nextjs/app
 WORKDIR /nextjs/app

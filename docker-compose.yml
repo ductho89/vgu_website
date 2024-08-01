@@ -29,20 +29,17 @@ services:
       timeout: 15s
       retries: 1
   web-intern-v2:
-    container_name: web-intern-v2
     ports: [$APP_PORT:3000]
+
     image: node:lts-alpine
-    build:
-      context: .
     restart: unless-stopped
+    working_dir: /usr/app
     env_file: .env
-    depends_on:
-      - directus
-    volumes: [.:/nextjs/app]
+    volumes: [.:/usr/app]
+    command: ["yarn", "ci"]
+    profiles: ["prod"]
     environment:
       - NEXT_PUBLIC_ENDPOINT=http://directus:8055
-   
-    profiles: ["prod"]
     networks:
       - new-vgu-network
 networks:
