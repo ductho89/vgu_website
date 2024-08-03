@@ -1,0 +1,48 @@
+# Production docker compose. should only be used in production machine
+services:
+  directus:
+    container_name: directus
+    image: directus/directus:latest
+    expose:
+      - "8055"
+    ports:
+      - "8055:8055"
+    volumes:
+      - ~/database:/directus/database
+      - ~/uploads:/directus/uploads
+      - ~/extensions:/directus/extensions
+      - ~/snapshots:/directus/snapshots
+    env_file: 
+      - .env
+      - /vgu-web.env
+    environment:
+      KEY: "replace-with-random-value"
+      SECRET: "replace-with-random-value"
+      DB_CLIENT: "sqlite3"
+      DB_FILENAME: "/directus/database/data.db"
+      WEBSOCKETS_ENABLED: "true"
+    networks:
+      - new-vgu-network
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://directus:8055/server/health || exit 1
+      start_period: 15s
+      interval: 15s
+      timeout: 15s
+      retries: 1
+  vgu-web:
+    image: tranguyenngoc2862002/vgu-web-test:latest
+    container_name: vgu-web
+    ports: 
+      - "3000:3000"
+    expose:
+      - "3000"
+    volumes:
+      - ~/app/public:/app/public
+    environment:
+      - NEXT_PUBLIC_ENDPOINT=http://directus:8055
+    networks:
+      - new-vgu-network
+networks:
+  new-vgu-network:
+    driver: bridge
+    name: new-vgu-network
